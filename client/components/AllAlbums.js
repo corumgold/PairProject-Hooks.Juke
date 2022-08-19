@@ -4,7 +4,6 @@ const AllAlbums = ({ albums }) => {
   return (
     <div id="albums" className="row wrap">
       {albums.map((album) => {
-        console.log(album);
         return (
           <div key={album.id} className="album">
             <a>
