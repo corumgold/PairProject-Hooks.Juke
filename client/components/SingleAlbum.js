@@ -5,7 +5,7 @@ const SingleAlbum = ({ album }) => {
     <div id="single-album" className="column">
       <div className="album">
         <a>
-          <img src={album.artworkUrl} />
+          <img src={album.artWorkUrl} />
           <p>{album.name}</p>
           <small>{album.artist.name}</small>
         </a>
@@ -21,7 +21,7 @@ const SingleAlbum = ({ album }) => {
           </tr>
           {album.songs.map((song) => {
             return (
-              <tr>
+              <tr key={song.id}>
                 <td>
                   <i className="fa fa-play-circle" />
                 </td>

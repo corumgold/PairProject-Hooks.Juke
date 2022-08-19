@@ -1,12 +1,12 @@
 import React from "react";
 
-const AllAlbums = ({ albums }) => {
+const AllAlbums = ({ albums, selectAlbum }) => {
   return (
     <div id="albums" className="row wrap">
       {albums.map((album) => {
         return (
           <div key={album.id} className="album">
-            <a>
+            <a onClick={() => selectAlbum(album)}>
               <img src={album.artWorkUrl} />
               <p>{album.name}</p>
               <small>{album.artist.name}</small>
