@@ -2,37 +2,25 @@ import React from "react";
 import Sidebar from "./components/Sidebar";
 import AllAlbums from "./components/AllAlbums";
 import Player from "./components/Player";
+import Axios from "axios";
 
 const Main = () => {
-  let dummyAlbums = [
-    {
-      id: 1,
-      name: "No Dummy",
-      artworkUrl: "default-album.jpg",
-      artistId: 1,
-      artist: {
-        id: 1,
-        name: "The Crash Test Dummies",
-      },
-    },
-    {
-      id: 2,
-      name: "I React to State",
-      artworkUrl: "default-album.jpg",
-      artistId: 1,
-      artist: {
-        id: 1,
-        name: "The Crash Test Dummies",
-      },
-    },
-  ];
+  const [albums, setAlbums] = React.useState([]);
 
-  const [albums, setAlbums] = React.useState(dummyAlbums);
+  React.useEffect(() => {
+    const fetchAlbums = async () => {
+      const res = await Axios.get("/api/albums");
+      console.log(res.data);
+      setAlbums(res.data);
+    };
+    fetchAlbums();
+  }, []);
 
   return (
     <div id="main" className="row container">
       <Sidebar />
       <div className="container">
+        {/* pass in our albums from state*/}
         <AllAlbums albums={albums} />
       </div>
       <Player />
