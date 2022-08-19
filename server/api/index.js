@@ -1,5 +1,13 @@
 const router = require('express').Router()
+const { Album } = require('../db/index')
 
-// connect your API routes here!
+router.get('/albums', async (req, res, next) => {
+    try {
+        const albums = await Album.findAll()
+        res.send(albums)
+    } catch (err) {
+        next(err)
+    }
+})
 
 module.exports = router
