@@ -8,7 +8,7 @@ import Axios from "axios";
 const Main = () => {
   const [albums, setAlbums] = React.useState([]);
   const [selectedAlbum, setSelectedAlbum] = React.useState({});
-  const [currentSong, setCurrentSong] = React.useState({});
+  const [currentSong, setCurrentSong] = React.useState('No song!');
 
   //SELECT ALBUM
   const selectAlbum = (album) => {
@@ -25,10 +25,14 @@ const Main = () => {
   };
 
   const playCurrentSong = (song) => {
+    const thisSong = song
+    console.log(thisSong.name)
     const audio = document.createElement("audio");
     audio.src = `${song.audioUrl}`;
     audio.load();
     audio.play();
+    setCurrentSong(thisSong.name);
+    console.log(currentSong);
   };
 
   // fetch our albums on page load!

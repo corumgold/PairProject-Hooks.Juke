@@ -1,6 +1,7 @@
 import React from "react";
 
 const SingleAlbum = ({ album, playSong }) => {
+    
   return (
     <div id="single-album" className="column">
       <div className="album">
