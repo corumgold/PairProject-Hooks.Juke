@@ -16,27 +16,27 @@ const seed = async () => {
   const ccv2 = await Album.create({
     name: 'Creative Commons Volume 2',
     artistId: dexter.id,
-    artworkUrl: 'https://learndotresources.s3.amazonaws.com/workshop/58cff0e769468300041ef9fd/creative_commons_vol_2.jpeg'
+    artWorkUrl: 'https://learndotresources.s3.amazonaws.com/workshop/58cff0e769468300041ef9fd/creative_commons_vol_2.jpeg'
   })
   const zenith = await Album.create({
     name: 'Zenith',
     artistId: dexter.id,
-    artworkUrl: 'https://learndotresources.s3.amazonaws.com/workshop/58cff0e769468300041ef9fd/zenith.jpeg'
+    artWorkUrl: 'https://learndotresources.s3.amazonaws.com/workshop/58cff0e769468300041ef9fd/zenith.jpeg'
   })
   const noNations = await Album.create({
     name: 'No Nations (Instrumentals)',
     artistId: jets.id,
-    artworkUrl: 'https://learndotresources.s3.amazonaws.com/workshop/58cff0e769468300041ef9fd/no_nations.jpeg'
+    artWorkUrl: 'https://learndotresources.s3.amazonaws.com/workshop/58cff0e769468300041ef9fd/no_nations.jpeg'
   })
   const ghosts = await Album.create({
     name: 'Ghosts I-IV',
     artistId: nin.id,
-    artworkUrl: 'https://learndotresources.s3.amazonaws.com/workshop/58cff0e769468300041ef9fd/ghosts_i-iv.jpeg'
+    artWorkUrl: 'https://learndotresources.s3.amazonaws.com/workshop/58cff0e769468300041ef9fd/ghosts_i-iv.jpeg'
   })
   const theSlip = await Album.create({
     name: 'The Slip',
     artistId: nin.id,
-    artworkUrl: 'https://learndotresources.s3.amazonaws.com/workshop/58cff0e769468300041ef9fd/the_slip.jpeg'
+    artWorkUrl: 'https://learndotresources.s3.amazonaws.com/workshop/58cff0e769468300041ef9fd/the_slip.jpeg'
   })
 
   const artists = {
