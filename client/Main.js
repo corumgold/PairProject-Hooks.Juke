@@ -7,7 +7,7 @@ import Axios from "axios";
 
 const Main = () => {
   const [albums, setAlbums] = React.useState([]);
-  const [selectedAlbum, setSelectedAlbum] = React.useState([]);
+  const [selectedAlbum, setSelectedAlbum] = React.useState({});
 
   const selectAlbum = (album) => {
     const fetchAlbum = async () => {
@@ -15,6 +15,10 @@ const Main = () => {
       setSelectedAlbum(res.data);
     };
     fetchAlbum();
+  };
+
+  const unselectAlbum = () => {
+    setSelectedAlbum({});
   };
 
   // fetch our albums on page load!
@@ -29,7 +33,7 @@ const Main = () => {
 
   return (
     <div id="main" className="row container">
-      <Sidebar />
+      <Sidebar unselectAlbum={unselectAlbum} />
       <div className="container">
         {/* pass in our albums from state*/}
         {selectedAlbum.id ? (
