@@ -8,7 +8,9 @@ import Axios from "axios";
 const Main = () => {
   const [albums, setAlbums] = React.useState([]);
   const [selectedAlbum, setSelectedAlbum] = React.useState({});
+  const [currentSong, setCurrentSong] = React.useState({});
 
+  //SELECT ALBUM
   const selectAlbum = (album) => {
     const fetchAlbum = async () => {
       const res = await Axios.get(`/api/albums/${album.id}`);
@@ -17,8 +19,16 @@ const Main = () => {
     fetchAlbum();
   };
 
+  //UNSELECT ALBUM
   const unselectAlbum = () => {
     setSelectedAlbum({});
+  };
+
+  const playCurrentSong = (song) => {
+    const audio = document.createElement("audio");
+    audio.src = `${song.audioUrl}`;
+    audio.load();
+    audio.play();
   };
 
   // fetch our albums on page load!
@@ -37,7 +47,7 @@ const Main = () => {
       <div className="container">
         {/* pass in our albums from state*/}
         {selectedAlbum.id ? (
-          <SingleAlbum album={selectedAlbum} />
+          <SingleAlbum album={selectedAlbum} playSong={playCurrentSong} />
         ) : (
           <AllAlbums albums={albums} selectAlbum={selectAlbum} />
         )}

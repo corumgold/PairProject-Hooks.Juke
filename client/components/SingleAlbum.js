@@ -1,6 +1,6 @@
 import React from "react";
 
-const SingleAlbum = ({ album }) => {
+const SingleAlbum = ({ album, playSong }) => {
   return (
     <div id="single-album" className="column">
       <div className="album">
@@ -20,18 +20,12 @@ const SingleAlbum = ({ album }) => {
             <td>Genre</td>
           </tr>
           {album.songs.map((song) => {
-            console.log(song);
             return (
               <tr key={song.id}>
                 <td>
                   <i
                     className="fa fa-play-circle"
-                    onClick={() => {
-                      const audio = document.createElement("audio");
-                      audio.src = `${song.audioUrl}`;
-                      audio.load();
-                      audio.play();
-                    }}
+                    onClick={() => playSong(song)}
                   />
                 </td>
                 <td>{song.id}</td>
